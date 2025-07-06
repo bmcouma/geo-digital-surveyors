@@ -5,6 +5,7 @@ from .models import Service
 from .models import GalleryImage
 from django.contrib import messages
 from .forms import ContactForm
+from .models import Testimonial
 
 def services(request):
     service_list = Service.objects.all().order_by('-created_at')
@@ -40,3 +41,6 @@ def contact(request):
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
+def home(request):
+    testimonials = Testimonial.objects.all().order_by('-created_at')[:3]
+    return render(request, 'home.html', {'testimonials': testimonials})

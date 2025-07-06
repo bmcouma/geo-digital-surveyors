@@ -26,3 +26,13 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.email}"
+
+class Testimonial(models.Model):
+    client_name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, blank=True)  # e.g., Land Owner, Realtor
+    message = models.TextField()
+    rating = models.IntegerField(default=5)  # Optional: 1–5 stars
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.client_name

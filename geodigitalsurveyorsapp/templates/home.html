@@ -1,8 +1,61 @@
+
+
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home - Geo Digital Surveyors{% endblock %}
 {% block content %}
-    <div class="text-center">
-        <h1 class="display-5 fw-bold text-primary">Welcome to Geo Digital Surveyors</h1>
-        <p class="lead">We specialize in land survey, cadastral mapping, physical planning, and architectural services.</p>
+
+<!-- Hero Section -->
+<section class="py-5 text-center bg-light border rounded shadow-sm">
+  <div class="container">
+    <h1 class="display-5 fw-bold text-primary">Geo Digital Surveyors</h1>
+    <p class="lead text-muted">Precision. Professionalism. Planning.</p>
+    <p class="fw-medium fst-italic text-dark">“Clients Opinion Matters”</p>
+    <a href="{% url 'services' %}" class="btn btn-primary px-4 mt-3">
+      View Our Services <i class="bi bi-arrow-right-circle"></i>
+    </a>
+  </div>
+</section>
+
+<!-- Company Intro -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-md-6">
+        <img src="{% static 'img/land-plot-with-nature-landscape-location-pin.jpg' %}" class="img-fluid rounded" alt="Survey Tools">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold text-primary">Delivering Reliable Survey Solutions</h2>
+        <p class="text-muted">We offer expert land surveying, cadastral mapping, title processing, topographical surveys, and architectural planning for individuals, developers, and institutions across Kenya.</p>
+        <a href="{% url 'about' %}" class="btn btn-outline-primary mt-3">Learn More About Us</a>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-white border-top border-bottom">
+  <div class="container">
+    <h3 class="text-primary fw-bold mb-4 text-center">What Our Clients Say</h3>
+    <div class="row g-4">
+      {% for t in testimonials %}
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <p class="card-text text-muted">“{{ t.message }}”</p>
+            <h6 class="card-subtitle mt-3 fw-bold">{{ t.client_name }}</h6>
+            {% if t.role %}
+            <p class="text-muted small mb-0">{{ t.role }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% if testimonials|length == 0 %}
+      <p class="text-center">No testimonials yet. Coming soon!</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
 {% endblock %}
