@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
 {% block title %}Contact Us - Geo Digital Surveyors{% endblock %}
 {% block content %}
-<h2 class="fw-bold text-primary mb-3">Get in Touch</h2>
-<p>Call or WhatsApp us at <strong>0799 187 391</strong></p>
-<p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
-<form class="mt-4">
-    <!-- Form will be made functional with Django backend later -->
-    <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input type="text" class="form-control" placeholder="Your name">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Phone</label>
-        <input type="text" class="form-control" placeholder="Phone number">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Message</label>
-        <textarea class="form-control" rows="4" placeholder="Your message..."></textarea>
-    </div>
+
+<h2 class="fw-bold text-primary mb-4">Contact Us</h2>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<form method="post" class="row g-3">
+  {% csrf_token %}
+  <div class="col-md-6">
+    {{ form.full_name.label_tag }} {{ form.full_name }}
+  </div>
+  <div class="col-md-6">
+    {{ form.phone.label_tag }} {{ form.phone }}
+  </div>
+  <div class="col-md-6">
+    {{ form.email.label_tag }} {{ form.email }}
+  </div>
+  <div class="col-12">
+    {{ form.message.label_tag }} {{ form.message }}
+  </div>
+  <div class="col-12">
     <button type="submit" class="btn btn-primary">Send Message</button>
+  </div>
 </form>
+
 {% endblock %}
