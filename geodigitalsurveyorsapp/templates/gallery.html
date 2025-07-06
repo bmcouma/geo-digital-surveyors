@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block title %}Gallery - Geo Digital Surveyors{% endblock %}
 {% block content %}
-<h2 class="fw-bold text-primary mb-3">Project Gallery</h2>
-<p>Here you’ll find images from our fieldwork and completed projects. This section will soon support dynamic uploads.</p>
+<h2 class="fw-bold text-primary mb-4">Project Gallery</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for image in images %}
+  <div class="col">
+    <div class="card h-100 border-0 shadow-sm">
+      <img src="{{ image.image.url }}" class="card-img-top" alt="{{ image.title }}">
+      <div class="card-body">
+        <h6 class="card-title">{{ image.title }}</h6>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>No images uploaded yet.</p>
+  {% endfor %}
+</div>
 {% endblock %}

@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block title %}Services - Geo Digital Surveyors{% endblock %}
 {% block content %}
-<h2 class="fw-bold text-primary mb-3">Our Services</h2>
-<p>We offer cadastral surveys, title deed processing, beaconing, boundary identification, topographical mapping, physical planning, and more. A detailed service list will be dynamic soon.</p>
+<h2 class="fw-bold text-primary mb-4">Our Services</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for service in services %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">{{ service.title }}</h5>
+          <p class="card-text">{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No services found.</p>
+  {% endfor %}
+</div>
 {% endblock %}
