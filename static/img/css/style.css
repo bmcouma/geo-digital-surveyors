@@ -69,3 +69,11 @@ img {
   height: auto;
   border-radius: 8px;
 }
+
+.service-card {
+  transition: all 0.3s ease-in-out;
+}
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}

@@ -1,12 +1,10 @@
-
-
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}Home - Geo Digital Surveyors{% endblock %}
 {% block meta_description %}Welcome to Geo Digital Surveyors – where accuracy meets professionalism. Discover our land surveying, mapping, and planning services across Kenya.{% endblock %}
 {% block og_title %}Geo Digital Surveyors - Your Land, Our Priority{% endblock %}
 {% block og_description %}Explore top-tier land survey services tailored for developers, institutions, and landowners. Clients Opinion Matters.{% endblock %}
-{% block content %}
 
 {% block content %}
 
@@ -21,24 +19,6 @@
     </a>
   </div>
 </section>
-
-<!-- About Section -->
-<section>
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-md-6">
-        <img src="{% static 'img/hero.jpg' %}" alt="Surveying" class="img-fluid">
-      </div>
-      <div class="col-md-6">
-        <h2 class="text-primary fw-bold mb-3">Delivering Reliable Survey Solutions</h2>
-        <p class="text-muted">We offer expert land surveying, cadastral mapping, title processing, topographical surveys, and architectural planning for individuals, developers, and institutions across Kenya.</p>
-        <a href="{% url 'about' %}" class="btn btn-outline-primary mt-3">Learn More About Us</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% endblock %}
 
 <!-- Company Intro -->
 <section class="py-5">
