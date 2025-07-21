@@ -1,36 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Contact Us - Geo Digital Surveyors{% endblock %}
-{% block meta_description %}Get in touch with us for professional land surveying services, consultation, and project collaboration.{% endblock %}
-{% block og_title %}Reach Out - Geo Digital Surveyors{% endblock %}
-{% block og_description %}Need a quote or have a land-related question? Contact Geo Digital Surveyors today and let’s work together.{% endblock %}
 
 {% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-between align-items-start g-5">
+      <!-- Contact Form -->
+      <div class="col-md-7">
+        <h2 class="fw-bold text-primary mb-4">Let’s Talk</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <form method="POST" class="bg-white p-4 shadow-sm rounded">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary mt-3 w-100">Send Message</button>
+        </form>
+      </div>
 
-<h2 class="fw-bold text-primary mb-4">Contact Us</h2>
+      <!-- Contact Info -->
+      <div class="col-md-4">
+        <div class="bg-white p-4 shadow-sm rounded">
+          <h5 class="text-primary fw-bold mb-3">Our Office</h5>
+          <p><i class="bi bi-geo-alt-fill text-primary me-2"></i>Eldoret, Kapsaret – Kenya</p>
+          <p><i class="bi bi-envelope-fill text-primary me-2"></i>info@geodigitalsurveyors.co.ke</p>
+          <p><i class="bi bi-phone-fill text-primary me-2"></i>+254 799 187 391</p>
 
-{% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-success">{{ message }}</div>
-  {% endfor %}
-{% endif %}
-
-<form method="post" class="row g-3">
-  {% csrf_token %}
-  <div class="col-md-6">
-    {{ form.full_name.label_tag }} {{ form.full_name }}
+          <h6 class="text-primary fw-bold mt-4 mb-2">Quick Contact</h6>
+          <a href="https://wa.me/254799187391" class="btn btn-success w-100" target="_blank">
+            <i class="bi bi-whatsapp me-1"></i> Message via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    {{ form.phone.label_tag }} {{ form.phone }}
-  </div>
-  <div class="col-md-6">
-    {{ form.email.label_tag }} {{ form.email }}
-  </div>
-  <div class="col-12">
-    {{ form.message.label_tag }} {{ form.message }}
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Send Message</button>
-  </div>
-</form>
-
+</section>
 {% endblock %}

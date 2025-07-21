@@ -1,24 +1,52 @@
 {% extends 'base.html' %}
-{% block title %}Project Gallery - Geo Digital Surveyors{% endblock %}
-{% block meta_description %}A visual showcase of our past surveys, tools in action, field work, and client projects across Kenya.{% endblock %}
-{% block og_title %}Survey Projects Gallery{% endblock %}
-{% block og_description %}View the precision and professionalism of our team in the field. Past projects and ongoing work included.{% endblock %}
+{% load static %}
+{% block title %}Gallery - Geo Digital Surveyors{% endblock %}
+{% block meta_description %}Explore project photos from Geo Digital Surveyors, showcasing real survey missions, mapping operations, and technical excellence across Kenya.{% endblock %}
+{% block og_title %}Photo Gallery - Geo Digital Surveyors{% endblock %}
+{% block og_description %}See our work in action. Drone captures, land plotting, and cadastral images from actual client projects.{% endblock %}
 
 {% block content %}
-<h2 class="fw-bold text-primary mb-4">Project Gallery</h2>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for image in images %}
-  <div class="col">
-    <div class="card h-100 border-0 shadow-sm">
-      <img src="{{ image.image.url }}" class="card-img-top" alt="{{ image.title }}">
-      <div class="card-body">
-        <h6 class="card-title">{{ image.title }}</h6>
+<!-- Header Section -->
+<section class="text-center py-5" style="background: linear-gradient(135deg, #007bff, #0056b3); color: white;">
+  <div class="container">
+    <h1 class="display-5 fw-bold" data-aos="fade-down">Our Project Gallery</h1>
+    <p class="lead">A glimpse into our fieldwork, equipment, and project highlights.</p>
+  </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+
+      {% comment %} Replace these URLs with your own images later {% endcomment %}
+      {% for i in "12345678" %}
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+        <div class="card shadow-sm border-0 h-100">
+          <a href="https://source.unsplash.com/600x400/?survey,landscape,{{ forloop.counter }}" data-bs-toggle="modal" data-bs-target="#imageModal{{ forloop.counter }}">
+            <img src="https://source.unsplash.com/600x400/?surveying,tools,{{ forloop.counter }}" class="card-img-top img-fluid rounded" alt="Survey image {{ forloop.counter }}">
+          </a>
+        </div>
       </div>
+
+      <!-- Modal Lightbox -->
+      <div class="modal fade" id="imageModal{{ forloop.counter }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-dark">
+            <div class="modal-body p-0">
+              <img src="https://source.unsplash.com/1200x800/?surveying,{{ forloop.counter }}" class="img-fluid w-100 rounded" alt="Full image {{ forloop.counter }}">
+            </div>
+            <div class="modal-footer bg-dark border-0">
+              <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
     </div>
   </div>
-  {% empty %}
-  <p>No images uploaded yet.</p>
-  {% endfor %}
-</div>
+</section>
+
 {% endblock %}

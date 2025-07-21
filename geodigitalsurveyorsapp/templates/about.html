@@ -1,11 +1,97 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}About Us - Geo Digital Surveyors{% endblock %}
-{% block meta_description %}Get to know Geo Digital Surveyors – our mission, our vision, and why we are trusted by landowners across Kenya.{% endblock %}
-{% block og_title %}Who We Are - Geo Digital Surveyors{% endblock %}
-{% block og_description %}Meet the team behind Kenya’s most trusted land survey solutions. Professionalism and client satisfaction come first.{% endblock %}
+{% block meta_description %}Discover the mission, vision, values, and expertise behind Geo Digital Surveyors. We deliver trusted land surveying and planning services across Kenya with precision and professionalism.{% endblock %}
+{% block og_title %}About Geo Digital Surveyors{% endblock %}
+{% block og_description %}We offer cadastral, topographical, and land development solutions backed by industry experience, accuracy, and client satisfaction.{% endblock %}
 
 {% block content %}
-<h2 class="fw-bold text-primary mb-3">About Geo Digital Surveyors</h2>
-<p>We are a team of licensed surveyors and planners offering land and property solutions across Kenya. Our goal is precision, professionalism, and client satisfaction.</p>
+<!-- About Us Banner -->
+<section class="text-center py-5 bg-light border-bottom" data-aos="fade-down" style="background: linear-gradient(135deg, #007bff 10%, #0056b3 100%); color: white;">
+  <div class="container">
+    <h1 class="display-5 fw-bold">About Us</h1>
+    <p class="lead">Your land, our precision. Trusted by developers, landowners, and institutions across Kenya.</p>
+  </div>
+</section>
+
+<!-- Who We Are -->
+<section class="py-5" data-aos="fade-up">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <img src="{% static 'img/about-surveyor.jpg' %}" class="img-fluid rounded shadow" alt="Surveyor at Work">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold text-primary mb-3">Who We Are</h2>
+        <p style="line-height: 1.8;">Geo Digital Surveyors is a registered land surveying firm committed to excellence, innovation, and reliability in every project. With decades of combined experience in land administration, mapping, and planning, we serve real estate developers, local governments, and private landowners across Kenya.</p>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Certified professionals & licensed surveyors</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Modern equipment & GIS-backed tools</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Transparent, client-centered processes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Vision & Mission -->
+<section class="bg-white py-5 border-top" data-aos="zoom-in">
+  <div class="container text-center">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="p-4 shadow-sm border rounded h-100" style="background-color: #f8f9fa;">
+          <h4 class="fw-bold text-primary">Our Vision</h4>
+          <p>To be Kenya’s most reliable and innovative surveying firm, delivering transformative spatial solutions that shape smart development and land use planning.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 shadow-sm border rounded h-100" style="background-color: #f8f9fa;">
+          <h4 class="fw-bold text-primary">Our Mission</h4>
+          <p>To provide precise land surveying, mapping, and planning services through skilled professionals, leading technology, and ethical commitment to our clients’ success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 bg-light" data-aos="fade-right">
+  <div class="container">
+    <h2 class="fw-bold text-center text-primary mb-5">Why Choose Geo Digital Surveyors?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="text-center p-4 border rounded shadow-sm bg-white h-100">
+          <i class="bi bi-geo-alt text-primary display-4 mb-3"></i>
+          <h5 class="fw-semibold">Accuracy Guaranteed</h5>
+          <p>We use advanced GNSS systems, Total Stations, and drone mapping to ensure precise coordinates and boundary layouts.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center p-4 border rounded shadow-sm bg-white h-100">
+          <i class="bi bi-briefcase-fill text-primary display-4 mb-3"></i>
+          <h5 class="fw-semibold">Professionalism</h5>
+          <p>We deliver quality reports, plans, and title documentation with full compliance to Kenya’s legal and land standards.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center p-4 border rounded shadow-sm bg-white h-100">
+          <i class="bi bi-chat-square-dots text-primary display-4 mb-3"></i>
+          <h5 class="fw-semibold">Client Satisfaction</h5>
+          <p>Our motto is simple – “Clients Opinion Matters.” Every job we handle is built on collaboration, clarity, and confidence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call To Action -->
+<section class="py-5 text-white" style="background-color: #0056b3;" data-aos="fade-up">
+  <div class="container text-center">
+    <h3 class="fw-bold mb-3">Let’s Get Your Land Surveyed Today</h3>
+    <p class="mb-4">Talk to our team and get a free consultation on cadastral work, boundary demarcation, or topographic mapping.</p>
+    <a href="{% url 'contact' %}" class="btn btn-light btn-lg px-4">
+      Contact Us <i class="bi bi-arrow-right-circle"></i>
+    </a>
+  </div>
+</section>
 {% endblock %}

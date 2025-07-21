@@ -77,3 +77,21 @@ img {
   transform: scale(1.05);
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
 }
+
+:root {
+  --bs-primary: #006a4e;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+input, textarea {
+  font-size: 0.95rem;
+}
+
+.btn-success {
+  background-color: #25d366;
+  border: none;
+}

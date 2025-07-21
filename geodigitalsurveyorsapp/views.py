@@ -6,6 +6,7 @@ from .models import GalleryImage
 from django.contrib import messages
 from .forms import ContactForm
 from .models import Testimonial
+from .forms import TestimonialForm
 
 def services(request):
     service_list = Service.objects.all().order_by('-created_at')
@@ -44,3 +45,12 @@ def contact(request):
 def home(request):
     testimonials = Testimonial.objects.all().order_by('-created_at')[:3]
     return render(request, 'home.html', {'testimonials': testimonials})
+
+def testimonials_view(request):
+    testimonials = Testimonial.objects.all().order_by('-submitted_at')
+    form = TestimonialForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        messages.success(request, "Thank you for your feedback!")
+        return redirect('testimonials')
+    return render(request, 'testimonials.html', {'testimonials': testimonials, 'form': form})
