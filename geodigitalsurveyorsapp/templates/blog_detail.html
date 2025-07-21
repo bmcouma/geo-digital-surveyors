@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ post.title }} - Geo Digital Surveyors{% endblock %}
+{% block meta_description %}{{ post.content|truncatewords:30 }}{% endblock %}
+{% block og_title %}{{ post.title }} - Geo Digital Surveyors{% endblock %}
+{% block og_description %}{{ post.content|truncatewords:30 }}{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+
+        <!-- Blog Image and Info -->
+        <div class="text-center mb-4">
+          {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded shadow mb-3" style="max-height: 400px;">
+          {% endif %}
+          <h1 class="fw-bold text-primary">{{ post.title }}</h1>
+          <p class="text-muted small">By <strong>{{ post.author }}</strong> | {{ post.created_at|date:"F d, Y" }}</p>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="content fs-6 lh-lg text-secondary" style="text-align: justify;" data-aos="fade-up">
+          {{ post.content|linebreaks }}
+        </div>
+
+        <!-- Like & Share Buttons -->
+        <div class="d-flex justify-content-between align-items-center my-4">
+          <form method="post" action="{% url 'geodigitalsurveyorsapp:blog_like' post.pk %}" novalidate>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success" aria-label="Like this post">
+              👍 Like ({{ post.likes }})
+            </button>
+          </form>
+
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary btn-sm" href="https://wa.me/?text={{ request.build_absolute_uri }}" rel="nofollow">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+            <a class="btn btn-outline-secondary btn-sm" href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" rel="nofollow">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a class="btn btn-outline-secondary btn-sm" href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" rel="nofollow">
+              <i class="bi bi-twitter-x"></i> Twitter
+            </a>
+          </div>
+        </div>
+
+        <!-- Comments Section -->
+        <hr>
+        <h5 class="fw-bold text-primary mb-3">Comments</h5>
+
+        {% for comment in comments %}
+        <div class="border-start ps-3 mb-3">
+          <p class="mb-1 fw-semibold">{{ comment.name }} <small class="text-muted">on {{ comment.created_at|date:"M d, Y" }}</small></p>
+          <p class="text-muted">{{ comment.comment }}</p>
+          <button class="btn btn-sm btn-outline-primary reply-btn" data-comment-id="{{ comment.id }}">Reply</button>
+          <!-- Reply Form -->
+          <div class="reply-form mt-2" id="reply-form-{{ comment.id }}" style="display: none;">
+            <form method="post" class="reply-comment-form" data-parent-id="{{ comment.id }}">
+              {% csrf_token %}
+              <input type="hidden" name="parent_id" value="{{ comment.id }}">
+              <div class="mb-2">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-2">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="mb-2">
+                <textarea name="comment" class="form-control" placeholder="Write a reply..." rows="2" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary">Submit Reply</button>
+            </form>
+          </div>
+          <!-- Replies -->
+          <div class="replies ms-4 mt-3">
+            {% for reply in comment.replies.filter(approved=True) %}
+            <div class="border-start ps-3 mb-2">
+              <p class="mb-1 fw-semibold">{{ reply.name }} <small class="text-muted">on {{ reply.created_at|date:"M d, Y" }}</small></p>
+              <p class="text-muted">{{ reply.comment }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">No comments yet. Be the first to share your thoughts!</p>
+        {% endfor %}
+
+        <!-- Comment Form -->
+        <div class="card shadow-sm mt-4">
+          <div class="card-body">
+            <h6 class="fw-bold text-primary">Leave a Comment</h6>
+            <form method="post" action="{% url 'geodigitalsurveyorsapp:blog_detail' post.pk %}" novalidate>
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <a href="{% url 'geodigitalsurveyorsapp:blog' %}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left-circle"></i> Back to Blog
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Show reply form
+    $('.reply-btn').on('click', function () {
+        let commentId = $(this).data('comment-id');
+        $(`#reply-form-${commentId}`).toggle();
+    });
+
+    // Submit reply
+    $('.reply-comment-form').on('submit', function (e) {
+        e.preventDefault();
+        let form = $(this);
+        let formData = form.serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'geodigitalsurveyorsapp:blog_detail' post.pk %}",
+            data: formData,
+            success: function (response) {
+                if (response.success) {
+                    let replyHtml = `
+                        <div class="border-start ps-3 mb-2">
+                            <p class="mb-1 fw-semibold">${response.comment.name} <small class="text-muted">on ${response.comment.created_at}</small></p>
+                            <p class="text-muted">${response.comment.comment}</p>
+                        </div>
+                    `;
+                    $(`#reply-form-${form.data('parent-id')}`).after(replyHtml);
+                    form[0].reset();
+                }
+            },
+            error: function () {
+                alert('Error submitting reply.');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

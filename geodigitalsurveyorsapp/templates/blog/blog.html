@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog - Geo Digital Surveyors{% endblock %}
+{% block meta_description %}Read the latest articles and updates from Geo Digital Surveyors.{% endblock %}
+{% block og_title %}Blog - Geo Digital Surveyors{% endblock %}
+{% block og_description %}Expert insights, news, and stories from the field of land surveying in Kenya.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-white">
+  <div class="container">
+    <h1 class="fw-bold text-primary mb-4">Blog</h1>
+    <div class="row">
+      {% for post in posts %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          {% if post.image %}
+          <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text text-muted small mb-2">
+              By <strong>{{ post.author }}</strong> | {{ post.created_at|date:"F d, Y" }}
+            </p>
+            <p class="card-text">{{ post.content|truncatewords:25 }}</p>
+            <a href="{% url 'geodigitalsurveyorsapp:blog_detail' post.pk %}" class="btn btn-outline-primary btn-sm">
+              Read More <i class="bi bi-arrow-right-circle"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <p class="text-muted">No blog posts available yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

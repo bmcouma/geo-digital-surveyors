@@ -1,0 +1,54 @@
+/* Custom Django Admin Styling */
+#header {
+  background-color: #023e8a;
+}
+#header h1 a {
+  color: white !important;
+  font-weight: bold;
+}
+#branding {
+  background-image: url('/static/admin/custom/logo.png');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 50px;
+}
+.module h2 {
+  color: #023e8a;
+}
+a {
+  color: #0077b6;
+}
+
+
+/* Custom Admin Styling */
+.admin-branding {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.admin-logo {
+  vertical-align: middle;
+}
+
+#site-name a {
+  color: #fff !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#site-name a:hover {
+  color: #e9ecef !important;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .admin-branding {
+    flex-direction: column;
+    text-align: center;
+  }
+  .admin-logo {
+    margin-bottom: 10px;
+  }
+}

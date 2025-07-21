@@ -34,8 +34,31 @@
   </div>
 </section>
 
+<!-- Meet the Founder -->
+<section class="py-5 bg-white border-top border-bottom" data-aos="fade-right">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5">
+        <img src="{% static 'img/founder.jpg' %}" alt="Founder" class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-7">
+        <h3 class="fw-bold text-primary mb-3">Meet the Founder</h3>
+        <p class="text-muted" style="line-height: 1.8;">
+          <strong>Ronny</strong>, the founder and lead surveyor of Geo Digital Surveyors, is a qualified and licensed professional with deep roots in spatial planning and land development. With years of experience working on both private and public projects, he brings unmatched attention to detail, legal knowledge, and passion to every client engagement.
+        </p>
+        <p class="text-muted">
+          His mission is simple: <em>“to deliver trusted land solutions with integrity, accuracy, and value.”</em>
+        </p>
+        <p class="text-muted">
+          Whether you're processing a title deed, mapping a new estate, or resolving land boundary disputes – you're in capable hands.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Our Vision & Mission -->
-<section class="bg-white py-5 border-top" data-aos="zoom-in">
+<section class="bg-white py-5 border-bottom" data-aos="zoom-in">
   <div class="container text-center">
     <div class="row g-4">
       <div class="col-md-6">
@@ -89,7 +112,7 @@
   <div class="container text-center">
     <h3 class="fw-bold mb-3">Let’s Get Your Land Surveyed Today</h3>
     <p class="mb-4">Talk to our team and get a free consultation on cadastral work, boundary demarcation, or topographic mapping.</p>
-    <a href="{% url 'contact' %}" class="btn btn-light btn-lg px-4">
+    <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-light btn-lg px-4">
       Contact Us <i class="bi bi-arrow-right-circle"></i>
     </a>
   </div>

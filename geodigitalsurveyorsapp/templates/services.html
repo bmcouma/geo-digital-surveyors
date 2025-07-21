@@ -9,11 +9,12 @@
 {% block content %}
 <style>
   .card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
   }
   .card-hover:hover {
     transform: scale(1.03);
     box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+    background-color: #f8f9fa;
     cursor: pointer;
   }
   .card-hover i {
@@ -22,6 +23,9 @@
   .card-hover:hover i {
     color: #0d6efd;
     transform: rotate(5deg);
+  }
+  .modal-header .btn-close {
+    filter: brightness(10);
   }
 </style>
 
@@ -36,12 +40,12 @@
 
       <!-- Service 1 -->
       <div class="col" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-sm border-0 card-hover">
           <div class="card-body text-center">
             <i class="bi bi-map-fill display-4 text-primary mb-3"></i>
             <h5 class="card-title fw-bold">Topographical Survey</h5>
             <p class="text-muted">Accurate elevation & terrain mapping for planning, roads, and structural design.</p>
-            <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service1Modal">Learn More</button>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service1Modal">Learn More</button>
           </div>
         </div>
       </div>
@@ -49,21 +53,21 @@
       <!-- Modal 1 -->
       <div class="modal fade" id="service1Modal" tabindex="-1" aria-labelledby="service1ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content shadow">
+          <div class="modal-content shadow rounded-3">
             <div class="modal-header bg-primary text-white">
               <h5 class="modal-title" id="service1ModalLabel">Topographical Survey</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4">
               <p>Our advanced equipment ensures terrain accuracy for engineering, architecture, and site design.</p>
-              <ul>
-                <li>Contour mapping</li>
-                <li>3D terrain models</li>
-                <li>Detailed reporting</li>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Contour mapping</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>3D terrain models</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Detailed reporting</li>
               </ul>
             </div>
             <div class="modal-footer">
-              <a href="{% url 'contact' %}" class="btn btn-primary">Request This Service</a>
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Request This Service</a>
             </div>
           </div>
         </div>
@@ -71,12 +75,12 @@
 
       <!-- Service 2 -->
       <div class="col" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-sm border-0 card-hover">
           <div class="card-body text-center">
             <i class="bi bi-bounding-box display-4 text-primary mb-3"></i>
             <h5 class="card-title fw-bold">Cadastral Survey</h5>
             <p class="text-muted">Marking legal property boundaries with precision for ownership and documentation.</p>
-            <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service2Modal">Learn More</button>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service2Modal">Learn More</button>
           </div>
         </div>
       </div>
@@ -84,21 +88,21 @@
       <!-- Modal 2 -->
       <div class="modal fade" id="service2Modal" tabindex="-1" aria-labelledby="service2ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content shadow">
+          <div class="modal-content shadow rounded-3">
             <div class="modal-header bg-primary text-white">
               <h5 class="modal-title" id="service2ModalLabel">Cadastral Survey</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4">
               <p>We assist clients in accurately defining property boundaries as per legal and regulatory standards.</p>
-              <ul>
-                <li>Parcel demarcation</li>
-                <li>Deed planning</li>
-                <li>Land registry submission</li>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Parcel demarcation</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Deed planning</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Land registry submission</li>
               </ul>
             </div>
             <div class="modal-footer">
-              <a href="{% url 'contact' %}" class="btn btn-primary">Request This Service</a>
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Request This Service</a>
             </div>
           </div>
         </div>
@@ -106,12 +110,12 @@
 
       <!-- Service 3 -->
       <div class="col" data-aos="zoom-in" data-aos-delay="300">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-sm border-0 card-hover">
           <div class="card-body text-center">
             <i class="bi bi-card-checklist display-4 text-primary mb-3"></i>
             <h5 class="card-title fw-bold">Title Deed Processing</h5>
             <p class="text-muted">We streamline land title registration, transfer, and search procedures.</p>
-            <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service3Modal">Learn More</button>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service3Modal">Learn More</button>
           </div>
         </div>
       </div>
@@ -119,165 +123,165 @@
       <!-- Modal 3 -->
       <div class="modal fade" id="service3Modal" tabindex="-1" aria-labelledby="service3ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content shadow">
+          <div class="modal-content shadow rounded-3">
             <div class="modal-header bg-primary text-white">
               <h5 class="modal-title" id="service3ModalLabel">Title Deed Processing</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4">
               <p>Whether buying or selling, we handle all documentation for swift, error-free ownership transfer.</p>
-              <ul>
-                <li>Land search assistance</li>
-                <li>Title verification</li>
-                <li>Registration and follow-up</li>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Land search assistance</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Title verification</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Registration and follow-up</li>
               </ul>
             </div>
             <div class="modal-footer">
-              <a href="{% url 'contact' %}" class="btn btn-primary">Start Processing</a>
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Start Processing</a>
             </div>
           </div>
         </div>
       </div>
 
-    <!-- Service 4 -->
-<div class="col" data-aos="zoom-in" data-aos-delay="400">
-  <div class="card h-100 shadow-sm border-0">
-    <div class="card-body text-center">
-      <i class="bi bi-bezier display-4 text-primary mb-3"></i>
-      <h5 class="card-title fw-bold">Physical Planning</h5>
-      <p class="text-muted">Professional planning services for urban and rural land use and development.</p>
-      <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service4Modal">Learn More</button>
-    </div>
-  </div>
-</div>
+      <!-- Service 4 -->
+      <div class="col" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card-body text-center">
+            <i class="bi bi-bezier display-4 text-primary mb-3"></i>
+            <h5 class="card-title fw-bold">Physical Planning</h5>
+            <p class="text-muted">Professional planning services for urban and rural land use and development.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service4Modal">Learn More</button>
+          </div>
+        </div>
+      </div>
 
-<!-- Modal 4 -->
-<div class="modal fade" id="service4Modal" tabindex="-1" aria-labelledby="service4ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content shadow">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="service4ModalLabel">Physical Planning</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      <!-- Modal 4 -->
+      <div class="modal fade" id="service4Modal" tabindex="-1" aria-labelledby="service4ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content shadow rounded-3">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="service4ModalLabel">Physical Planning</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+              <p>We prepare detailed physical development plans in compliance with county and national policies.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Land zoning</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Subdivision schemes</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Change of user applications</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Book Consultation</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>We prepare detailed physical development plans in compliance with county and national policies.</p>
-        <ul>
-          <li>Land zoning</li>
-          <li>Subdivision schemes</li>
-          <li>Change of user applications</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <a href="{% url 'contact' %}" class="btn btn-primary">Book Consultation</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Service 5 -->
-<div class="col" data-aos="zoom-in" data-aos-delay="500">
-  <div class="card h-100 shadow-sm border-0">
-    <div class="card-body text-center">
-      <i class="bi bi-building display-4 text-primary mb-3"></i>
-      <h5 class="card-title fw-bold">Architectural Planning</h5>
-      <p class="text-muted">Get approved structural designs, plans, and site layouts tailored for your project.</p>
-      <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service5Modal">Learn More</button>
-    </div>
-  </div>
-</div>
+      <!-- Service 5 -->
+      <div class="col" data-aos="zoom-in" data-aos-delay="500">
+        <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card-body text-center">
+            <i class="bi bi-building display-4 text-primary mb-3"></i>
+            <h5 class="card-title fw-bold">Architectural Planning</h5>
+            <p class="text-muted">Get approved structural designs, plans, and site layouts tailored for your project.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service5Modal">Learn More</button>
+          </div>
+        </div>
+      </div>
 
-<!-- Modal 5 -->
-<div class="modal fade" id="service5Modal" tabindex="-1" aria-labelledby="service5ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content shadow">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="service5ModalLabel">Architectural Planning</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      <!-- Modal 5 -->
+      <div class="modal fade" id="service5Modal" tabindex="-1" aria-labelledby="service5ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content shadow rounded-3">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="service5ModalLabel">Architectural Planning</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+              <p>We offer fully approved drawings and 3D designs for residential, commercial, and institutional projects.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>County approvals</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>3D design rendering</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Site layouts and floor plans</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Start Planning</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>We offer fully approved drawings and 3D designs for residential, commercial, and institutional projects.</p>
-        <ul>
-          <li>County approvals</li>
-          <li>3D design rendering</li>
-          <li>Site layouts and floor plans</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <a href="{% url 'contact' %}" class="btn btn-primary">Start Planning</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Service 6 -->
-<div class="col" data-aos="zoom-in" data-aos-delay="600">
-  <div class="card h-100 shadow-sm border-0">
-    <div class="card-body text-center">
-      <i class="bi bi-compass display-4 text-primary mb-3"></i>
-      <h5 class="card-title fw-bold">Beaconing & Boundary Identification</h5>
-      <p class="text-muted">Re-establish boundaries and fix beacons for peace of mind and land clarity.</p>
-      <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service6Modal">Learn More</button>
-    </div>
-  </div>
-</div>
+      <!-- Service 6 -->
+      <div class="col" data-aos="zoom-in" data-aos-delay="600">
+        <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card-body text-center">
+            <i class="bi bi-compass display-4 text-primary mb-3"></i>
+            <h5 class="card-title fw-bold">Beaconing & Boundary Identification</h5>
+            <p class="text-muted">Re-establish boundaries and fix beacons for peace of mind and land clarity.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service6Modal">Learn More</button>
+          </div>
+        </div>
+      </div>
 
-<!-- Modal 6 -->
-<div class="modal fade" id="service6Modal" tabindex="-1" aria-labelledby="service6ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content shadow">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="service6ModalLabel">Beaconing & Boundary Identification</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      <!-- Modal 6 -->
+      <div class="modal fade" id="service6Modal" tabindex="-1" aria-labelledby="service6ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content shadow rounded-3">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="service6ModalLabel">Beaconing & Boundary Identification</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+              <p>We provide reliable boundary marking and beacon placement using legal maps and physical verification.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Land conflict resolution</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Permanent beacon installation</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Boundary disputes support</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Request This Service</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>We provide reliable boundary marking and beacon placement using legal maps and physical verification.</p>
-        <ul>
-          <li>Land conflict resolution</li>
-          <li>Permanent beacon installation</li>
-          <li>Boundary disputes support</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <a href="{% url 'contact' %}" class="btn btn-primary">Request This Service</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Service 7 -->
-<div class="col" data-aos="zoom-in" data-aos-delay="700">
-  <div class="card h-100 shadow-sm border-0">
-    <div class="card-body text-center">
-      <i class="bi bi-globe-americas display-4 text-primary mb-3"></i>
-      <h5 class="card-title fw-bold">GIS Mapping</h5>
-      <p class="text-muted">We leverage modern GIS tools to create spatial data layers and map visualizations.</p>
-      <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#service7Modal">Learn More</button>
-    </div>
-  </div>
-</div>
+      <!-- Service 7 -->
+      <div class="col" data-aos="zoom-in" data-aos-delay="700">
+        <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card-body text-center">
+            <i class="bi bi-globe-americas display-4 text-primary mb-3"></i>
+            <h5 class="card-title fw-bold">GIS Mapping</h5>
+            <p class="text-muted">We leverage modern GIS tools to create spatial data layers and map visualizations.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2 rounded-3" data-bs-toggle="modal" data-bs-target="#service7Modal">Learn More</button>
+          </div>
+        </div>
+      </div>
 
-<!-- Modal 7 -->
-<div class="modal fade" id="service7Modal" tabindex="-1" aria-labelledby="service7ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content shadow">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="service7ModalLabel">GIS Mapping</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      <!-- Modal 7 -->
+      <div class="modal fade" id="service7Modal" tabindex="-1" aria-labelledby="service7ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content shadow rounded-3">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="service7ModalLabel">GIS Mapping</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+              <p>Visualize and analyze land data for planning, development, or environment using our GIS platforms.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Parcel overlay & analysis</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Custom interactive maps</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Decision support systems</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-primary rounded-3">Get Mapping Support</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>Visualize and analyze land data for planning, development, or environment using our GIS platforms.</p>
-        <ul>
-          <li>Parcel overlay & analysis</li>
-          <li>Custom interactive maps</li>
-          <li>Decision support systems</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <a href="{% url 'contact' %}" class="btn btn-primary">Get Mapping Support</a>
-      </div>
-    </div>
-  </div>
-</div>
 
     </div>
   </div>

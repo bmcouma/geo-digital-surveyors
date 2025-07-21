@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy - Geo Digital Surveyors{% endblock %}
+{% block meta_description %}Understand how Geo Digital Surveyors collects, uses, and protects your personal information when you use our website and services.{% endblock %}
+{% block og_title %}Privacy Policy | Geo Digital Surveyors{% endblock %}
+{% block og_description %}We are committed to protecting your privacy and ensuring transparency about how your data is handled.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light border-bottom">
+  <div class="container">
+    <h2 class="fw-bold text-primary text-center mb-4" data-aos="fade-down">Privacy Policy</h2>
+
+    <div class="bg-white shadow-sm p-4 rounded" data-aos="fade-up">
+      <p class="text-muted">Effective Date: July 2025</p>
+
+      <p class="text-muted">
+        At <strong>Geo Digital Surveyors</strong>, we take your privacy seriously. This Privacy Policy outlines the type of personal data we collect, how we use it, and the choices you have regarding your information.
+      </p>
+
+      <h5 class="fw-bold mt-4">1. Information We Collect</h5>
+      <ul class="text-muted">
+        <li>Contact details you provide (name, email, phone) when filling out forms.</li>
+        <li>Messages or inquiries submitted through the contact page.</li>
+        <li>Browsing data such as IP address and pages visited.</li>
+      </ul>
+
+      <h5 class="fw-bold mt-4">2. How We Use Your Information</h5>
+      <ul class="text-muted">
+        <li>To respond to your inquiries or provide quotes for our services.</li>
+        <li>To improve the performance, design, and functionality of our website.</li>
+        <li>To send newsletters if you’ve subscribed (you may unsubscribe anytime).</li>
+      </ul>
+
+      <h5 class="fw-bold mt-4">3. Data Sharing</h5>
+      <p class="text-muted">
+        We do not sell, rent, or share your personal information with third parties unless:
+        <ul class="text-muted">
+          <li>It’s required by law or legal process.</li>
+          <li>It’s necessary to protect our legal rights or business operations.</li>
+        </ul>
+      </p>
+
+      <h5 class="fw-bold mt-4">4. Data Security</h5>
+      <p class="text-muted">
+        We implement technical and organizational measures to safeguard your data from unauthorized access, disclosure, or misuse.
+      </p>
+
+      <h5 class="fw-bold mt-4">5. Your Rights</h5>
+      <p class="text-muted">
+        You may request to access, correct, or delete your personal data at any time by contacting us via the details provided on our contact page.
+      </p>
+
+      <h5 class="fw-bold mt-4">6. Changes to This Policy</h5>
+      <p class="text-muted">
+        We may update this policy from time to time. Any changes will be posted on this page with a revised date.
+      </p>
+
+      <h5 class="fw-bold mt-4">7. Contact Us</h5>
+      <p class="text-muted">
+        If you have any questions about our Privacy Policy, feel free to reach out through our <a href="{% url 'geodigitalsurveyorsapp:contact' %}">Contact Page</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

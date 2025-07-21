@@ -3,14 +3,14 @@
 {% block title %}Testimonials - Geo Digital Surveyors{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
   <div class="container">
     <h2 class="text-center fw-bold text-primary mb-4" data-aos="fade-down">Client Testimonials</h2>
 
     <div class="row g-4 mb-5">
       {% for t in testimonials %}
       <div class="col-md-4" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
-        <div class="card h-100 shadow-sm border-0">
+        <div class="card h-100 shadow-lg border-0 rounded-3" style="transition: transform 0.3s ease-in-out;">
           <div class="card-body">
             <p class="card-text text-muted fst-italic">“{{ t.message }}”</p>
             <h6 class="fw-bold mt-3 mb-0 text-primary">{{ t.client_name }}</h6>
@@ -26,18 +26,21 @@
 
     <div class="row justify-content-center" data-aos="fade-up">
       <div class="col-md-8">
-        <div class="card shadow-sm border-0">
-          <div class="card-body">
+        <div class="card shadow-lg border-0 rounded-3">
+          <div class="card-body p-4">
             <h4 class="text-primary fw-bold mb-3">Leave Your Feedback</h4>
             {% if messages %}
               {% for message in messages %}
-                <div class="alert alert-success">{{ message }}</div>
+                <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
               {% endfor %}
             {% endif %}
-            <form method="post" novalidate>
+            <form method="post" class="needs-validation" novalidate>
               {% csrf_token %}
               {{ form.as_p }}
-              <button type="submit" class="btn btn-primary mt-3">Submit Feedback</button>
+              <button type="submit" class="btn btn-primary mt-3 w-100 rounded-3">Submit Feedback</button>
             </form>
           </div>
         </div>
@@ -46,4 +49,17 @@
 
   </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseover', () => {
+      card.style.transform = 'scale(1.02)';
+    });
+    card.addEventListener('mouseout', () => {
+      card.style.transform = 'scale(1)';
+    });
+  });
+</script>
 {% endblock %}
