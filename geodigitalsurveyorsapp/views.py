@@ -163,18 +163,15 @@ def subscribe(request):
 
 
 # --- FAQS ---
-
 def faqs_view(request):
     faqs = FAQ.objects.all().order_by('id')
     return render(request, 'faqs.html', {'faqs': faqs})
 
 # --- PRIVACY POLICY ---
-
 def privacy_policy(request):
     return render(request, 'privacy.html')
 
 # --- TERMS AND CONDITIONS ---
-
 def terms_conditions(request):
     return render(request, 'terms.html')
 
