@@ -127,15 +127,29 @@ def blog_detail(request, pk):
 # --- BLOG LIKE ---
 def blog_like(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
-    session_id = request.session.session_key or request.session.save()
-    like = Like.objects.filter(post=post, session_id=session_id)
-
-    if like.exists():
-        like.delete()
-    else:
-        Like.objects.create(post=post, session_id=session_id)
-
-    return redirect('blog_detail', pk=pk)
+    
+    if request.method == 'POST':
+        ip_address = request.META.get('REMOTE_ADDR')
+        like, created = Like.objects.get_or_create(
+            post=post, 
+            ip_address=ip_address,
+            defaults={'session_id': request.session.session_key or request.session.save()}
+        )
+        
+        if not created:
+            like.delete()
+            liked = False
+        else:
+            liked = True
+        
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({
+                'success': True,
+                'liked': liked,
+                'likes_count': post.post_likes.count()
+            })
+    
+    return redirect('geodigitalsurveyorsapp:blog_detail', pk=pk)
 
 # --- BLOG CREATE ---
 def blog_create(request):
@@ -156,10 +170,21 @@ def subscribe(request):
         form = SubscriptionForm(request.POST)
         if form.is_valid():
             form.save()
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({
+                    'success': True,
+                    'message': 'Successfully subscribed to newsletter!'
+                })
             messages.success(request, "Subscribed successfully!")
         else:
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({
+                    'success': False,
+                    'message': 'Subscription failed. Please try again.',
+                    'errors': form.errors
+                })
             messages.error(request, "Subscription failed.")
-    return redirect('blog')
+    return redirect('geodigitalsurveyorsapp:blog')
 
 
 # --- FAQS ---

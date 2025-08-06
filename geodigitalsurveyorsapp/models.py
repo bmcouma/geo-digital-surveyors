@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.utils.text import slugify
 
 # --- SERVICES ---
 class Service(models.Model):
@@ -55,6 +56,11 @@ class BlogCategory(models.Model):
     slug = models.SlugField(_("Slug"), unique=True, blank=True)
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
@@ -63,6 +69,11 @@ class BlogCategory(models.Model):
 class BlogTag(models.Model):
     name = models.CharField(_("Tag Name"), max_length=50, unique=True)
     slug = models.SlugField(_("Slug"), unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -83,6 +94,11 @@ class BlogPost(models.Model):
     tags = models.ManyToManyField(BlogTag, blank=True)
     likes = models.PositiveIntegerField(default=0)
     views = models.PositiveIntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -106,7 +122,11 @@ class Comment(models.Model):
 class Like(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='post_likes')
     ip_address = models.GenericIPAddressField()
+    session_id = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['post', 'ip_address']
 
     def __str__(self):
         return f"{self.ip_address} liked {self.post.title}"
