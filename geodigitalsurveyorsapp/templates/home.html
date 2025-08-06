@@ -8,114 +8,390 @@
 
 {% block content %}
 
-<!-- Hero Section -->
-<section id="hero" class="d-flex align-items-center bg-light" style="min-height: 90vh; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+<!-- Enhanced Hero Section -->
+<section id="hero" class="d-flex align-items-center position-relative" style="min-height: 90vh;">
   <div class="container text-center position-relative" data-aos="fade-up" data-aos-delay="100">
-    <h1 class="fw-bold text-primary">Geo Digital Surveyors</h1>
-    <h2 class="text-muted fst-italic">Precision. Professionalism. Planning.</h2>
-    <p class="text-dark fw-medium mt-2">"Clients Opinion Matters"</p>
-    <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="btn btn-primary btn-lg mt-4 rounded-3 btn-hover" role="button">
-      Explore Our Services <i class="bi bi-arrow-right-circle ms-2"></i>
-    </a>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1 class="fw-bold mb-4 animate-fade-in-up">Geo Digital Surveyors</h1>
+        <h2 class="text-muted fst-italic mb-3 animate-fade-in-up" style="animation-delay: 0.2s;">Precision. Professionalism. Planning.</h2>
+        <p class="text-dark fw-medium mb-4 animate-fade-in-up" style="animation-delay: 0.4s; font-size: 1.1rem;">"Clients Opinion Matters"</p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center animate-fade-in-up" style="animation-delay: 0.6s;">
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="btn btn-primary btn-lg rounded-3" role="button">
+            <i class="bi bi-tools me-2"></i>Explore Our Services
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-outline-primary btn-lg rounded-3" role="button">
+            <i class="bi bi-telephone me-2"></i>Get Quote
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Indicators -->
+    <div class="row mt-5 pt-4" data-aos="fade-up" data-aos-delay="800">
+      <div class="col-12">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 text-muted">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-shield-check text-success me-2"></i>
+            <span class="small fw-medium">Licensed & Certified</span>
+          </div>
+          <div class="d-none d-sm-inline">|</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-geo-alt text-primary me-2"></i>
+            <span class="small fw-medium">Nationwide Coverage</span>
+          </div>
+          <div class="d-none d-sm-inline">|</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-people text-info me-2"></i>
+            <span class="small fw-medium">1000+ Satisfied Clients</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- About Section -->
+<!-- Enhanced About Section -->
 <section id="about" class="py-5">
   <div class="container" data-aos="fade-up">
-    <div class="row align-items-center">
+    <div class="row align-items-center gy-5">
       <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-        <img src="{% static 'img/placeholder.txt' %}" alt="Land Surveying" class="img-fluid rounded-3 shadow-sm">
+        <div class="position-relative">
+          <img src="{% static 'img/surveying-equipment.jpg' %}" alt="Professional Land Surveying Equipment" class="img-fluid rounded-3 shadow-lg">
+          <div class="position-absolute top-0 start-0 bg-primary text-white p-3 rounded-3 m-3 shadow">
+            <i class="bi bi-award fs-4"></i>
+            <div class="mt-2">
+              <div class="fw-bold">Licensed</div>
+              <small>Professional Surveyors</small>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6 col-md-6 pt-4 pt-lg-0 content">
-        <h3 class="text-primary fw-bold">Reliable Survey Solutions in Kenya</h3>
-        <p class="text-muted mt-3">We offer trusted services in land surveying, cadastral mapping, beaconing, title deed processing, topographical surveys, and architectural planning. Whether for individuals or large institutions, our results are accurate, legally compliant, and GIS-ready.</p>
-        <a href="{% url 'geodigitalsurveyorsapp:about' %}" class="btn btn-outline-primary mt-3 rounded-3 btn-hover" role="button">Learn More About Us</a>
+      <div class="col-lg-6 col-md-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="300">
+        <div class="section-title text-start mb-4">
+          <h3 class="text-primary fw-bold mb-3">Reliable Survey Solutions in Kenya</h3>
+          <p class="text-muted mb-4">We offer trusted services in land surveying, cadastral mapping, beaconing, title deed processing, topographical surveys, and architectural planning. Whether for individuals or large institutions, our results are accurate, legally compliant, and GIS-ready.</p>
+        </div>
+
+        <!-- Key Benefits -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+              <span class="fw-medium">Modern Equipment</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+              <span class="fw-medium">Quick Turnaround</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+              <span class="fw-medium">Legal Compliance</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+              <span class="fw-medium">24/7 Support</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="{% url 'geodigitalsurveyorsapp:about' %}" class="btn btn-outline-primary rounded-3" role="button">
+          <i class="bi bi-arrow-right me-2"></i>Learn More About Us
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why Choose Us -->
+<!-- Enhanced Why Choose Us -->
 <section id="why-us" class="bg-light py-5">
   <div class="container" data-aos="fade-up">
+    <div class="section-title mb-5">
+      <h2 class="text-center fw-bold mb-3">Why Choose Geo Digital Surveyors?</h2>
+      <p class="text-center text-muted">We combine cutting-edge technology with years of experience to deliver exceptional surveying services</p>
+    </div>
+
     <div class="row text-center g-4">
-      <div class="col-lg-4 col-md-6">
-        <div class="icon-box shadow-sm p-4 rounded-3 h-100">
-          <i class="bi bi-compass text-primary fs-1"></i>
-          <h4 class="mt-3 fw-bold text-primary">Accurate Mapping</h4>
-          <p class="text-muted">We use modern tools to ensure precision and consistency in boundary and topographic mapping.</p>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box shadow-sm p-4 rounded-3 h-100 bg-white">
+          <div class="icon-wrapper mb-4">
+            <i class="bi bi-compass text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h4 class="fw-bold text-primary mb-3">Accurate Mapping</h4>
+          <p class="text-muted mb-0">We use modern tools to ensure precision and consistency in boundary and topographic mapping.</p>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="icon-box shadow-sm p-4 rounded-3 h-100">
-          <i class="bi bi-shield-check text-primary fs-1"></i>
-          <h4 class="mt-3 fw-bold text-primary">Licensed & Certified</h4>
-          <p class="text-muted">Registered and approved under the Kenyan laws, our work is professional, legal, and secure.</p>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box shadow-sm p-4 rounded-3 h-100 bg-white">
+          <div class="icon-wrapper mb-4">
+            <i class="bi bi-shield-check text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h4 class="fw-bold text-primary mb-3">Licensed & Certified</h4>
+          <p class="text-muted mb-0">Registered and approved under the Kenyan laws, our work is professional, legal, and secure.</p>
         </div>
       </div>
-      <div class="col-lg-4 col-md-12">
-        <div class="icon-box shadow-sm p-4 rounded-3 h-100">
-          <i class="bi bi-geo-alt text-primary fs-1"></i>
-          <h4 class="mt-3 fw-bold text-primary">Nationwide Reach</h4>
-          <p class="text-muted">We serve both urban and rural areas across Kenya with full coverage and prompt response.</p>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box shadow-sm p-4 rounded-3 h-100 bg-white">
+          <div class="icon-wrapper mb-4">
+            <i class="bi bi-geo-alt text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h4 class="fw-bold text-primary mb-3">Nationwide Reach</h4>
+          <p class="text-muted mb-0">We serve both urban and rural areas across Kenya with full coverage and prompt response.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="py-5 bg-light border-top border-bottom">
-  <div class="container">
-    <h3 class="text-center fw-bold" style="color: #145DA0;" data-aos="fade-up">What Our Clients Say</h3>
-    <div class="row g-4 mt-4">
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card border-0 shadow-sm h-100" style="transition: transform 0.3s ease-in-out;">
-          <div class="card-body">
-            <p class="text-muted fst-italic">“Geo Digital Surveyors helped us with title deed processing and cadastral mapping in Kitale. Very professional team – timely and reliable!”</p>
-            <h6 class="fw-bold mt-3" style="color: #145DA0;">Samuel Kipkoech</h6>
-            <small class="text-muted">Real Estate Developer, Trans-Nzoia</small>
+<!-- Enhanced Dynamic Testimonials Carousel -->
+<section id="testimonials" class="py-5">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title mb-5">
+      <h2 class="text-center fw-bold mb-3">What Our Clients Say</h2>
+      <p class="text-center text-muted">Don't just take our word for it - hear from our satisfied clients across Kenya</p>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Geo Digital Surveyors helped us with title deed processing and cadastral mapping in Kitale. Very professional team – timely and reliable! Their attention to detail saved us potential legal issues."
+                </blockquote>
+                <div class="testimonial-author">Samuel Kipkoech</div>
+                <div class="testimonial-role">Real Estate Developer, Trans-Nzoia</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "We hired them for a topographical survey before our construction project in Eldoret. The data was accurate, well-documented, and GIS-compatible. Exceeded our expectations!"
+                </blockquote>
+                <div class="testimonial-author">Eng. Irene Muthoni</div>
+                <div class="testimonial-role">Structural Engineer, EldoBuild Co.</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Their beaconing services saved us land disputes. They marked boundaries precisely and even followed up on land registry updates. Outstanding customer service!"
+                </blockquote>
+                <div class="testimonial-author">David Omondi</div>
+                <div class="testimonial-role">Farmer & Landowner, Kisumu County</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Professional architectural planning services for our hotel project in Nakuru. They delivered detailed plans that met all county requirements. Highly recommended!"
+                </blockquote>
+                <div class="testimonial-author">Grace Wanjiku</div>
+                <div class="testimonial-role">Hotel Owner, Nakuru County</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Fast and accurate land subdivision for our family property. Clear documentation and professional service throughout. They made the process stress-free."
+                </blockquote>
+                <div class="testimonial-author">Peter Mutua</div>
+                <div class="testimonial-role">Property Owner, Machakos</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Excellent topographical mapping for our infrastructure project. Modern equipment and skilled technicians. Delivered on time and within budget."
+                </blockquote>
+                <div class="testimonial-author">Eng. James Kiprotich</div>
+                <div class="testimonial-role">Civil Engineer, Kericho County</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Professional cadastral survey for our industrial park. Comprehensive report with all legal requirements met. Their expertise is unmatched in Western Kenya."
+                </blockquote>
+                <div class="testimonial-author">Mary Achieng</div>
+                <div class="testimonial-role">Industrial Developer, Kisumu</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Quick boundary marking service for our agricultural land. Professional team with modern GPS equipment. Great value for money and excellent results."
+                </blockquote>
+                <div class="testimonial-author">John Mwangi</div>
+                <div class="testimonial-role">Farmer, Meru County</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card h-100">
+                <div class="rating mb-3">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+                <blockquote class="mb-4">
+                  "Complete land development planning for our residential project. From initial survey to final approvals. Exceptional service and ongoing support."
+                </blockquote>
+                <div class="testimonial-author">Rose Nyakundi</div>
+                <div class="testimonial-role">Real Estate Investor, Nyeri</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card border-0 shadow-sm h-100" style="transition: transform 0.3s ease-in-out;">
-          <div class="card-body">
-            <p class="text-muted fst-italic">“We hired them for a topographical survey before our construction project in Eldoret. The data was accurate, well-documented, and GIS-compatible.”</p>
-            <h6 class="fw-bold mt-3" style="color: #145DA0;">Eng. Irene Muthoni</h6>
-            <small class="text-muted">Structural Engineer, EldoBuild Co.</small>
-          </div>
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev d-none d-lg-flex" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+        <div class="carousel-control-icon bg-primary rounded-circle p-3">
+          <i class="bi bi-chevron-left text-white"></i>
         </div>
-      </div>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next d-none d-lg-flex" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+        <div class="carousel-control-icon bg-primary rounded-circle p-3">
+          <i class="bi bi-chevron-right text-white"></i>
+        </div>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="card border-0 shadow-sm h-100" style="transition: transform 0.3s ease-in-out;">
-          <div class="card-body">
-            <p class="text-muted fst-italic">“Their beaconing services saved us land disputes. They marked boundaries precisely and even followed up on land registry updates.”</p>
-            <h6 class="fw-bold mt-3" style="color: #145DA0;">David Omondi</h6>
-            <small class="text-muted">Farmer & Landowner, Kisumu County</small>
-          </div>
+    <!-- Testimonial Stats -->
+    <div class="row mt-5 pt-4 text-center">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="h2 fw-bold text-primary mb-1">1000+</div>
+        <div class="text-muted">Satisfied Clients</div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="h2 fw-bold text-primary mb-1">5000+</div>
+        <div class="text-muted">Projects Completed</div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="h2 fw-bold text-primary mb-1">47</div>
+        <div class="text-muted">Counties Served</div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="h2 fw-bold text-primary mb-1">99%</div>
+        <div class="text-muted">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-5 bg-primary text-white position-relative overflow-hidden">
+  <div class="container text-center" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h2 class="fw-bold mb-3">Ready to Start Your Survey Project?</h2>
+        <p class="mb-4 opacity-90">Get professional surveying services tailored to your needs. Contact us today for a free consultation and quote.</p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="btn btn-light btn-lg">
+            <i class="bi bi-envelope me-2"></i>Get Free Quote
+          </a>
+          <a href="tel:+254799187391" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-telephone me-2"></i>Call Now
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{% endblock %}
-
-{% block extra_js %}
-<script>
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseover', () => {
-      card.style.transform = 'translateY(-10px)';
-      card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
-    });
-    card.addEventListener('mouseout', () => {
-      card.style.transform = 'translateY(0)';
-      card.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
-    });
-  });
-</script>
 {% endblock %}

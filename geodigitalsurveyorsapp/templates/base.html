@@ -39,29 +39,76 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
- 
+
   {% block extra_head %}{% endblock %}
 </head>
 
 <body style="font-family: 'Poppins', sans-serif;">
 
-<!-- ======= Navbar ======= -->
+<!-- ======= Professional Enhanced Navbar ======= -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="{% url 'geodigitalsurveyorsapp:home' %}">
-      <i class="bi bi-geo-alt-fill"></i> Geo Digital Surveyors
+    <!-- Professional Brand/Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'geodigitalsurveyorsapp:home' %}">
+      <div class="logo-container me-3">
+        <div class="logo-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); border-radius: 50%; box-shadow: 0 4px 8px rgba(75, 142, 199, 0.3);">
+          <i class="bi bi-compass text-white" style="font-size: 1.5rem;"></i>
+        </div>
+      </div>
+      <div>
+        <span class="fw-bold text-primary" style="font-size: 1.4rem;">Geo Digital Surveyors</span>
+        <div class="small text-muted d-none d-lg-block" style="font-size: 0.75rem; line-height: 1;">Professional Survey Services • Licensed & Certified</div>
+      </div>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:home' %}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:about' %}">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:services' %}">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:gallery' %}">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:contact' %}">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'geodigitalsurveyorsapp:faqs' %}">FAQs</a></li>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'geodigitalsurveyorsapp:home' %}">
+            <i class="bi bi-house me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geodigitalsurveyorsapp:about' %}">
+            <i class="bi bi-info-circle me-1"></i>About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geodigitalsurveyorsapp:services' %}">
+            <i class="bi bi-tools me-1"></i>Services
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geodigitalsurveyorsapp:gallery' %}">
+            <i class="bi bi-images me-1"></i>Gallery
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geodigitalsurveyorsapp:contact' %}">
+            <i class="bi bi-envelope me-1"></i>Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geodigitalsurveyorsapp:faqs' %}">
+            <i class="bi bi-question-circle me-1"></i>FAQs
+          </a>
+        </li>
+        <li class="nav-item ms-lg-2">
+          <button class="btn btn-outline-primary btn-sm rounded-pill px-3 me-2" data-bs-toggle="modal" data-bs-target="#quoteModal">
+            <i class="bi bi-file-text me-1"></i>Get Quote
+          </button>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-sm rounded-pill px-3" href="tel:+254799187391">
+            <i class="bi bi-telephone me-1"></i>Call Now
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -74,51 +121,306 @@
     {% endblock %}
 </main>
 
-<!-- ======= Footer ======= -->
-<footer class="bg-gradient-primary text-white pt-5 pb-3" style="background: linear-gradient(135deg, #145DA0 0%, #0C2D48 100%);">
+<!-- ======= Professional Footer ======= -->
+<footer class="position-relative overflow-hidden">
   <div class="container">
-    <div class="row align-items-center gy-4">
-      <!-- Logo & Tagline -->
-      <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-        <a href="{% url 'geodigitalsurveyorsapp:home' %}" class="d-inline-flex align-items-center mb-2 text-white text-decoration-none">
-          <i class="bi bi-geo-alt-fill fs-2 me-2"></i>
-          <span class="fw-bold fs-4">Geo Digital Surveyors</span>
-        </a>
-        <p class="small mt-2 mb-0 fst-italic">Precision. Professionalism. Planning.</p>
+    <div class="row gy-5">
+      <!-- Company Info -->
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand mb-4">
+          <a href="{% url 'geodigitalsurveyorsapp:home' %}" class="d-inline-flex align-items-center mb-3 text-decoration-none">
+            <i class="bi bi-geo-alt-fill me-3" style="font-size: 2.5rem; color: var(--accent-orange);"></i>
+            <div>
+              <h4 class="text-white mb-0 fw-bold">Geo Digital Surveyors</h4>
+              <small class="text-white-50">Professional Surveying Services</small>
+            </div>
+          </a>
+          <p class="text-white-50 mb-4">Delivering precision and professionalism in land surveying across Kenya. From mapping to title processing, we provide trusted solutions tailored for landowners, developers, and institutions.</p>
+          <div class="d-flex align-items-center text-white-50 mb-2">
+            <i class="bi bi-geo-alt me-3 text-primary"></i>
+            <span>Nakuru, Kenya</span>
+          </div>
+          <div class="d-flex align-items-center text-white-50">
+            <i class="bi bi-award me-3 text-primary"></i>
+            <span>Licensed & Certified Surveyors</span>
+          </div>
+        </div>
       </div>
+
       <!-- Quick Links -->
-      <div class="col-md-4 text-center mb-3 mb-md-0">
-        <h6 class="fw-bold text-uppercase mb-3">Quick Links</h6>
-        <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
-          <li><a href="{% url 'geodigitalsurveyorsapp:about' %}" class="text-white text-decoration-none">About</a></li>
-          <li><a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-white text-decoration-none">Services</a></li>
-          <li><a href="{% url 'geodigitalsurveyorsapp:gallery' %}" class="text-white text-decoration-none">Gallery</a></li>
-          <li><a href="{% url 'geodigitalsurveyorsapp:blog' %}" class="text-white text-decoration-none">Blog</a></li>
-          <li><a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="text-white text-decoration-none">Contact</a></li>
-        </ul>
+      <div class="col-lg-2 col-md-6">
+        <h5 class="text-white fw-bold mb-4">Quick Links</h5>
+        <div class="d-flex flex-column gap-2">
+          <a href="{% url 'geodigitalsurveyorsapp:home' %}" class="text-decoration-none">
+            <i class="bi bi-house me-2"></i>Home
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:about' %}" class="text-decoration-none">
+            <i class="bi bi-info-circle me-2"></i>About Us
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-tools me-2"></i>Services
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:gallery' %}" class="text-decoration-none">
+            <i class="bi bi-images me-2"></i>Gallery
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:contact' %}" class="text-decoration-none">
+            <i class="bi bi-envelope me-2"></i>Contact
+          </a>
+        </div>
       </div>
-      <!-- Contact & Social -->
-      <div class="col-md-4 text-center text-md-end">
-        <h6 class="fw-bold text-uppercase mb-3">Contact</h6>
-        <p class="mb-1 small"><i class="bi bi-envelope me-2"></i>info@geodigitalsurveyors.co.ke</p>
-        <p class="mb-3 small"><i class="bi bi-telephone me-2"></i>+254 799 187391</p>
-        <div class="d-flex justify-content-center justify-content-md-end gap-3">
-          <a href="https://wa.me/254799187391" class="text-white fs-5" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="mailto:info@geodigitalsurveyors.co.ke" class="text-white fs-5" aria-label="Email"><i class="bi bi-envelope"></i></a>
-          <a href="https://www.linkedin.com/company/geo-digital-surveyors" class="text-white fs-5" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
-          <a href="https://twitter.com/GeoDigitalKe" class="text-white fs-5" aria-label="Twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+
+      <!-- Services -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="text-white fw-bold mb-4">Our Services</h5>
+        <div class="d-flex flex-column gap-2">
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-compass me-2"></i>Land Surveying
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-map me-2"></i>Cadastral Mapping
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-pin-map me-2"></i>Beaconing Services
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-file-earmark-text me-2"></i>Title Deed Processing
+          </a>
+          <a href="{% url 'geodigitalsurveyorsapp:services' %}" class="text-decoration-none">
+            <i class="bi bi-building me-2"></i>Architectural Planning
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="text-white fw-bold mb-4">Contact Information</h5>
+        <div class="d-flex flex-column gap-3">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-envelope text-primary me-3 mt-1"></i>
+            <div>
+              <span class="text-white-50 small d-block">Email Address</span>
+              <a href="mailto:surveyorseodigital@gmail.com" class="text-decoration-none fw-semibold">
+                surveyorseodigital@gmail.com
+              </a>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <i class="bi bi-telephone text-primary me-3 mt-1"></i>
+            <div>
+              <span class="text-white-50 small d-block">Phone Number</span>
+              <a href="tel:+254799187391" class="text-decoration-none fw-semibold">
+                +254 799 187391
+              </a>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <i class="bi bi-clock text-primary me-3 mt-1"></i>
+            <div>
+              <span class="text-white-50 small d-block">Working Hours</span>
+              <span class="text-white fw-semibold">Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-links mt-4">
+          <h6 class="text-white fw-bold mb-3">Follow Us</h6>
+          <div class="d-flex gap-2">
+            <a href="https://wa.me/254799187391" target="_blank" aria-label="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="mailto:surveyorseodigital@gmail.com" aria-label="Email">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <hr class="border-light my-4">
-    <div class="row">
-      <div class="col text-center">
-        <small class="d-block mb-1">&copy; {% now "Y" %} Geo Digital Surveyors. All rights reserved.</small>
-        <small class="fst-italic">“Clients Opinion Matters”</small>
+
+    <!-- Copyright Section -->
+    <div class="copyright text-center">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">&copy; {% now "Y" %} Geo Digital Surveyors. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p class="mb-0 fst-italic fw-medium">"Clients Opinion Matters"</p>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- Professional Quote Request Modal -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      <div class="modal-header bg-primary text-white border-0">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-file-text-fill me-3 fs-4"></i>
+          <div>
+            <h5 class="modal-title mb-0" id="quoteModalLabel">Request Free Quote</h5>
+            <small class="opacity-75">Get professional surveying quote in 24 hours</small>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="quoteForm" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <!-- Personal Information -->
+            <div class="col-12">
+              <h6 class="text-primary mb-3"><i class="bi bi-person me-2"></i>Personal Information</h6>
+            </div>
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full Name *</label>
+              <input type="text" class="form-control" id="fullName" required>
+              <div class="invalid-feedback">Please provide your full name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="phoneNumber" class="form-label">Phone Number *</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="+254..." required>
+              <div class="invalid-feedback">Please provide a valid phone number.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" class="form-control" id="email" required>
+              <div class="invalid-feedback">Please provide a valid email.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="location" class="form-label">Property Location *</label>
+              <input type="text" class="form-control" id="location" placeholder="County, Town" required>
+              <div class="invalid-feedback">Please provide the property location.</div>
+            </div>
+
+            <!-- Project Information -->
+            <div class="col-12 mt-4">
+              <h6 class="text-primary mb-3"><i class="bi bi-geo-alt me-2"></i>Project Details</h6>
+            </div>
+            <div class="col-md-6">
+              <label for="serviceType" class="form-label">Service Required *</label>
+              <select class="form-select" id="serviceType" required>
+                <option value="">Select Service</option>
+                <option value="land-surveying">Land Surveying</option>
+                <option value="cadastral-mapping">Cadastral Mapping</option>
+                <option value="beaconing">Beaconing Services</option>
+                <option value="title-deed">Title Deed Processing</option>
+                <option value="topographical">Topographical Survey</option>
+                <option value="architectural">Architectural Planning</option>
+                <option value="subdivision">Land Subdivision</option>
+                <option value="other">Other (Please specify)</option>
+              </select>
+              <div class="invalid-feedback">Please select a service type.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="landSize" class="form-label">Land Size (Optional)</label>
+              <input type="text" class="form-control" id="landSize" placeholder="e.g., 1 acre, 0.5 hectares">
+            </div>
+            <div class="col-md-6">
+              <label for="urgency" class="form-label">Project Urgency *</label>
+              <select class="form-select" id="urgency" required>
+                <option value="">Select Urgency</option>
+                <option value="urgent">Urgent (1-2 weeks)</option>
+                <option value="normal">Normal (2-4 weeks)</option>
+                <option value="flexible">Flexible (1-2 months)</option>
+              </select>
+              <div class="invalid-feedback">Please select project urgency.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="budget" class="form-label">Estimated Budget (Optional)</label>
+              <select class="form-select" id="budget">
+                <option value="">Select Budget Range</option>
+                <option value="under-50k">Under KSh 50,000</option>
+                <option value="50k-100k">KSh 50,000 - 100,000</option>
+                <option value="100k-200k">KSh 100,000 - 200,000</option>
+                <option value="200k-500k">KSh 200,000 - 500,000</option>
+                <option value="above-500k">Above KSh 500,000</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="projectDescription" class="form-label">Project Description *</label>
+              <textarea class="form-control" id="projectDescription" rows="4" placeholder="Please describe your surveying needs, property details, and any specific requirements..." required></textarea>
+              <div class="invalid-feedback">Please provide project description.</div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="col-12 mt-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="siteVisit">
+                <label class="form-check-label" for="siteVisit">
+                  I would like to schedule a site visit for accurate assessment
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms">
+                  I agree to the <a href="#" class="text-primary">Terms & Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a> *
+                </label>
+                <div class="invalid-feedback">You must agree to the terms.</div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 bg-light">
+        <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle me-2"></i>Cancel
+          </button>
+          <button type="submit" form="quoteForm" class="btn btn-primary flex-grow-1">
+            <i class="bi bi-send me-2"></i>Submit Quote Request
+          </button>
+        </div>
+        <div class="w-100 mt-3">
+          <small class="text-muted">
+            <i class="bi bi-shield-check me-1"></i>
+            Your information is secure and will only be used to provide your quote.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WhatsApp Chat Widget -->
+<div class="whatsapp-widget position-fixed" style="bottom: 30px; right: 30px; z-index: 1050;">
+  <div class="whatsapp-tooltip position-absolute bg-white rounded-3 shadow-lg p-3 d-none" style="bottom: 70px; right: 0; white-space: nowrap; max-width: 250px;">
+    <div class="d-flex align-items-center mb-2">
+      <img src="https://via.placeholder.com/40x40/4B8EC7/FFFFFF?text=GDS" alt="Support" class="rounded-circle me-2">
+      <div>
+        <div class="fw-bold small">Geo Digital Support</div>
+        <div class="text-muted" style="font-size: 0.75rem;">Typically replies instantly</div>
+      </div>
+    </div>
+    <div class="small text-muted mb-2">Hi! 👋 How can we help you with your surveying needs?</div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-primary btn-sm flex-grow-1" onclick="openWhatsApp('quote')">
+        <i class="bi bi-file-text me-1"></i>Get Quote
+      </button>
+      <button class="btn btn-outline-primary btn-sm flex-grow-1" onclick="openWhatsApp('info')">
+        <i class="bi bi-info-circle me-1"></i>Ask Question
+      </button>
+    </div>
+    <button class="btn-close position-absolute" style="top: 8px; right: 8px;" onclick="hideWhatsAppTooltip()"></button>
+  </div>
+
+  <button class="whatsapp-button btn btn-success rounded-circle shadow-lg p-3 d-flex align-items-center justify-content-center" onclick="toggleWhatsAppTooltip()" style="width: 60px; height: 60px; background: #25D366;">
+    <i class="bi bi-whatsapp text-white" style="font-size: 1.8rem;"></i>
+  </button>
+
+  <!-- Notification Badge -->
+  <span class="notification-badge position-absolute bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; top: -5px; right: -5px; font-size: 0.7rem;">
+    1
+  </span>
+</div>
 
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -131,6 +433,160 @@
 
 <!-- Custom JavaScript -->
 <script src="{% static 'js/main.js' %}"></script>
+
+<script>
+// Quote Form Handling
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  if (this.checkValidity()) {
+    // Collect form data
+    const formData = {
+      fullName: document.getElementById('fullName').value,
+      phoneNumber: document.getElementById('phoneNumber').value,
+      email: document.getElementById('email').value,
+      location: document.getElementById('location').value,
+      serviceType: document.getElementById('serviceType').value,
+      landSize: document.getElementById('landSize').value,
+      urgency: document.getElementById('urgency').value,
+      budget: document.getElementById('budget').value,
+      projectDescription: document.getElementById('projectDescription').value,
+      siteVisit: document.getElementById('siteVisit').checked,
+    };
+
+    // Create WhatsApp message
+    const message = `🏗️ *New Quote Request - Geo Digital Surveyors*\n\n` +
+      `👤 *Client Information:*\n` +
+      `Name: ${formData.fullName}\n` +
+      `Phone: ${formData.phoneNumber}\n` +
+      `Email: ${formData.email}\n` +
+      `Location: ${formData.location}\n\n` +
+      `📋 *Project Details:*\n` +
+      `Service: ${formData.serviceType}\n` +
+      `Land Size: ${formData.landSize || 'Not specified'}\n` +
+      `Urgency: ${formData.urgency}\n` +
+      `Budget: ${formData.budget || 'Not specified'}\n` +
+      `Site Visit: ${formData.siteVisit ? 'Yes' : 'No'}\n\n` +
+      `📝 *Description:*\n${formData.projectDescription}\n\n` +
+      `⏰ Submitted: ${new Date().toLocaleString()}`;
+
+    // Send via WhatsApp
+    const whatsappUrl = `https://wa.me/254799187391?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
+    // Close modal and show success message
+    const modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+    modal.hide();
+
+    // Show success toast
+    showSuccessToast('Quote request sent successfully! We\'ll contact you within 24 hours.');
+
+    // Reset form
+    this.reset();
+    this.classList.remove('was-validated');
+  } else {
+    this.classList.add('was-validated');
+  }
+});
+
+// WhatsApp Widget Functions
+let whatsappTooltipVisible = false;
+
+function toggleWhatsAppTooltip() {
+  const tooltip = document.querySelector('.whatsapp-tooltip');
+  const badge = document.querySelector('.notification-badge');
+
+  if (whatsappTooltipVisible) {
+    hideWhatsAppTooltip();
+  } else {
+    tooltip.classList.remove('d-none');
+    badge.style.display = 'none';
+    whatsappTooltipVisible = true;
+
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+      if (whatsappTooltipVisible) {
+        hideWhatsAppTooltip();
+      }
+    }, 10000);
+  }
+}
+
+function hideWhatsAppTooltip() {
+  const tooltip = document.querySelector('.whatsapp-tooltip');
+  tooltip.classList.add('d-none');
+  whatsappTooltipVisible = false;
+}
+
+function openWhatsApp(type) {
+  let message = '';
+
+  if (type === 'quote') {
+    message = `Hi! I'm interested in getting a quote for surveying services. Could you please provide more information?`;
+  } else if (type === 'info') {
+    message = `Hi! I have some questions about your surveying services. Could you help me?`;
+  } else {
+    message = `Hi! I'd like to know more about your professional surveying services.`;
+  }
+
+  const whatsappUrl = `https://wa.me/254799187391?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+  hideWhatsAppTooltip();
+}
+
+// Success Toast Function
+function showSuccessToast(message) {
+  // Create toast element
+  const toastHTML = `
+    <div class="toast align-items-center text-white bg-success border-0 position-fixed" style="top: 20px; right: 20px; z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="bi bi-check-circle me-2"></i>${message}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  `;
+
+  // Add to DOM
+  document.body.insertAdjacentHTML('beforeend', toastHTML);
+
+  // Initialize and show toast
+  const toastElement = document.querySelector('.toast:last-child');
+  const toast = new bootstrap.Toast(toastElement, { delay: 5000 });
+  toast.show();
+
+  // Remove from DOM after hiding
+  toastElement.addEventListener('hidden.bs.toast', () => {
+    toastElement.remove();
+  });
+}
+
+// Show notification badge after page load
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const badge = document.querySelector('.notification-badge');
+    if (badge) {
+      badge.style.display = 'flex';
+    }
+  }, 3000);
+});
+
+// Enhanced carousel controls
+document.addEventListener('DOMContentLoaded', function() {
+  // Auto-play carousel with pause on hover
+  const carousel = document.querySelector('#testimonialsCarousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => {
+      bootstrap.Carousel.getInstance(carousel).pause();
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      bootstrap.Carousel.getInstance(carousel).cycle();
+    });
+  }
+});
+</script>
 
 {% block extra_js %}{% endblock %}
 
